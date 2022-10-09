@@ -1,9 +1,9 @@
 import { Component } from 'react';
 import { searchImage } from './API/API';
 import SearchBar from './Searchbar/Searchbar';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { toastMessage, ToastWrapper } from './Toast/Toast';
+import { toastMessage } from './Toast/Toast';
 
 export class App extends Component {
   state = {
