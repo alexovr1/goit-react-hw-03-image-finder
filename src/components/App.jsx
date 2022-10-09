@@ -4,14 +4,19 @@ import SearchBar from './Searchbar/Searchbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { toastMessage } from './Toast/Toast';
+import { ImageGallery } from './ImageGallery/ImageGallery';
 
 export class App extends Component {
   state = {
     page: 1,
     query: '',
     items: [],
-    largeImg: '',
+    largeImage: '',
     isLoaded: false,
+  };
+
+  handleLargeImage = image => {
+    this.setState({ largeImage: image });
   };
 
   handleFormSubmit = query => {
@@ -33,11 +38,11 @@ export class App extends Component {
     ) {
       this.setState({ isLoaded: true });
       const data = await searchImage(this.state.query, this.state.page);
-      console.log(data.length);
-
       if (data.length === 0) {
+        this.setState({ isLoaded: false });
         return toastMessage();
       } else {
+        console.log('update');
         this.setState(prevState => ({
           items: [...prevState.items, ...data],
           isLoaded: false,
@@ -61,6 +66,10 @@ export class App extends Component {
           pauseOnHover
         />
         <SearchBar imageName={this.handleFormSubmit} />
+        <ImageGallery
+          items={this.state.items}
+          handleLargeImage={this.handleLargeImage}
+        />
       </>
     );
   }

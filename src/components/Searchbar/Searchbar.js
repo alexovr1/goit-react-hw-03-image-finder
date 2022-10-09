@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { BsSearch } from "react-icons/bs";
 
@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
     }
 
     handleNameImage = e => {
-        this.setState({ imageName: e.currentTarget.value.toLowerCase() })
+        this.setState({ imageName: e.currentTarget.value.toLowerCase().trim() })
     }
     handleSubmit = e => {
         e.preventDefault();
@@ -37,4 +37,8 @@ export default class SearchBar extends Component {
             </header>
         )
     }
+}
+
+SearchBar.propTypes = {
+    imageName: PropTypes.func,
 }
