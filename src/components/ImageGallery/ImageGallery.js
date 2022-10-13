@@ -15,7 +15,7 @@ export const ImageGallery = ({ items, handleLargeImage }) => {
 }
 
 ImageGallery.propTypes = {
-    handleLargeImage: PropTypes.func,
+    handleLargeImage: PropTypes.func.isRequired,
     data: PropTypes.arrayOf(
         PropTypes.exact({
             id: PropTypes.number.isRequired,

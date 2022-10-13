@@ -40,5 +40,5 @@ export default class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-    imageName: PropTypes.func,
+    imageName: PropTypes.func.isRequired,
 }
